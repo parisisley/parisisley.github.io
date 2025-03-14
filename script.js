@@ -1,53 +1,44 @@
-// JavaScript to enhance interactivity on each page
-
-// Greeting for the home page
-window.addEventListener('DOMContentLoaded', function() {
-    const greetingElement = document.getElementById('greeting');
-    const currentHour = new Date().getHours();
-
-    if (currentHour < 12) {
-        greetingElement.textContent = "Good morning! Welcome to my website.";
-    } else if (currentHour < 18) {
-        greetingElement.textContent = "Good afternoon! Welcome to my website.";
-    } else {
-        greetingElement.textContent = "Good evening! Welcome to my website.";
-    }
-});
-
-// Project list for the projects page
-window.addEventListener('DOMContentLoaded', function() {
-    const projectList = document.getElementById('project-list');
-    const projects = [
-        { name: "Project 1", url: "https://github.com/yourusername/project1" },
-        { name: "Project 2", url: "https://github.com/yourusername/project2" },
-        { name: "Project 3", url: "https://github.com/yourusername/project3" }
+document.addEventListener("DOMContentLoaded", function() {
+    const services = [
+        { title: '3D Printing', description: 'Custom 3D printed designs.', imageUrl: 'images/3Dprinting.png', pricing: 'Starting at $20' },
+        { title: 'Home & Office IT Services', description: 'Computer and network support.', imageUrl: 'images/it.png', pricing: '$50/hour' },
+        { title: 'Web Development', description: 'Responsive website development.', imageUrl: 'images/webdesign.png', pricing: 'Starting at $500' },
+        { title: 'Pet Drop-Ins', description: 'Short pet check-ins.', imageUrl: 'images/dropin.png', pricing: '$25 per visit' },
+        { title: 'Dog Walking', description: 'Exercise for your dog.', imageUrl: 'images/dogwalker.png', pricing: '$15 per walk' },
+        { title: 'Pet Sitting', description: 'Overnight pet care.', imageUrl: 'images/petsitting.png', pricing: '$50 per night' }
     ];
 
-    projects.forEach(project => {
-        const listItem = document.createElement('li');
-        const link = document.createElement('a');
-        link.href = project.url;
-        link.textContent = project.name;
-        listItem.appendChild(link);
-        projectList.appendChild(listItem);
+    const container = document.getElementById("service-container");
+    const modalOverlay = document.getElementById("modal-overlay");
+    const modalTitle = document.getElementById("modal-title");
+    const modalDescription = document.getElementById("modal-description");
+    const modalPricing = document.getElementById("modal-pricing");
+    const closeModalBtn = document.getElementById("close-modal");
+
+    function openModal(service) {
+        modalTitle.textContent = service.title;
+        modalDescription.textContent = service.description;
+        modalPricing.textContent = service.pricing;
+        modalOverlay.style.display = "flex";
+    }
+
+    function closeModal() {
+        modalOverlay.style.display = "none";
+    }
+
+    modalOverlay.addEventListener("click", function(event) {
+        if (event.target === modalOverlay) closeModal();
+    });
+
+    closeModalBtn.addEventListener("click", closeModal);
+
+    services.forEach(service => {
+        const card = document.createElement("div");
+        card.classList.add("service-card");
+        card.innerHTML = `<img src="${service.imageUrl}" alt="${service.title}">
+                          <h3>${service.title}</h3>
+                          <p>${service.description}</p>`;
+        card.addEventListener("click", () => openModal(service));
+        container.appendChild(card);
     });
 });
-
-// Form submission handler for the services page
-const form = document.getElementById('service-form');
-if (form) {
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        const name = document.getElementById('service-name').value;
-        const email = document.getElementById('service-email').value;
-        const response = document.getElementById('form-response');
-        
-        if (name && email) {
-            response.textContent = `Thank you, ${name}! We'll get in touch with you at ${email} soon.`;
-            response.style.color = 'green';
-        } else {
-            response.textContent = "Please fill out all fields.";
-            response.style.color = 'red';
-        }
-    });
-}

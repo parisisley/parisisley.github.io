@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Your Name - Services</title>
+    <title>My Services</title>
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/services.css">
     <script src="script.js" defer></script>
 </head>
 <body>
+
     <header>
         <h1>Your Name</h1>
         <nav>
@@ -21,25 +21,23 @@
         </nav>
     </header>
 
-    <section class="services">
+    <section id="services">
         <h2>My Services</h2>
-        <ul>
-            <li>Web Development</li>
-            <li>Consulting</li>
-            <li>Custom Software Solutions</li>
-        </ul>
-        <form id="service-form">
-            <label for="service-name">Your Name:</label>
-            <input type="text" id="service-name" required>
-            <label for="service-email">Your Email:</label>
-            <input type="email" id="service-email" required>
-            <button type="submit">Submit</button>
-        </form>
-        <p id="form-response"></p>
+        <div class="service-cards" id="service-container"></div>
     </section>
+
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-btn" id="close-modal">✖</button>
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+            <p><strong>Pricing: </strong><span id="modal-pricing"></span></p>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2025 Your Name</p>
     </footer>
+
 </body>
 </html>
