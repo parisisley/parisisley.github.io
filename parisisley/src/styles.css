@@ -1,0 +1,70 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #eae0c8; /* Light beige */
+  color: #5a3e2b; /* Dark brown */
+}
+
+header {
+  background-color: #8b5e3b; /* Earthy brown */
+  color: white;
+  padding: 20px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+#services {
+  padding: 50px 20px;
+  background-color: #ffffff; /* White background for the section */
+}
+
+.service-cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.service-card {
+  width: 300px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.service-card h3 {
+  margin: 0;
+}
+
+button {
+  background-color: #556b2f;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #6b8e23;
+}

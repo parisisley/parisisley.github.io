@@ -1,0 +1,90 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2c3e50;
+  padding: 15px 20px;
+  color: white;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-menu li {
+  display: inline;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: #f39c12;
+}
+
+.menu-toggle {
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: none;
+}
+
+.close-menu{
+  display: none;
+}
+
+.eiffel-tower{
+  width: 50px;
+  color: white;
+  background-color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background: #34495e;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 30px;
+    transition: right 0.3s ease-in-out;
+  }
+
+  .nav-menu.open {
+    right: 0;
+  }
+
+  /* Close button inside mobile menu */
+.close-menu {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: white;
+}
+
+.close-menu:hover {
+  color: #f39c12;
+}
+
+}
